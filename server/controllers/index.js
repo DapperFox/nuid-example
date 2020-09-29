@@ -63,7 +63,7 @@ async function challenge (req, res) {
   const { email } = req.body
 
   // TODO: Use an actual DB here
-  const userResponse = await fetch(`${process.env.SHEETY_URL}/4`)
+  const userResponse = await fetch(`${process.env.SHEETY_URL}/2`)
   const { user } = await userResponse.json()
 
   if (!user) {
@@ -84,10 +84,9 @@ async function login (req, res) {
   const { email, proof, challengeJwt } = req.body
 
   // TODO: Use an actual DB here
-  const userResponse = await fetch(`${process.env.SHEETY_URL}/4`)
+  const userResponse = await fetch(`${process.env.SHEETY_URL}/2`)
   const { user } = await userResponse.json()
 
-  console.log(proof, challengeJwt)
   if (!user) {
     res.sendStatus(401)
     return
@@ -96,7 +95,7 @@ async function login (req, res) {
     'nuid.credential.challenge/jwt': challengeJwt,
     'nuid.credential/proof': proof
   })
-  console.log(verifyRes.ok)
+
   if (verifyRes.ok) {
     res.sendStatus(201)
   }

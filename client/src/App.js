@@ -63,7 +63,6 @@ function App() {
         challengeJwt
       })
     })
-    debugger
   }
 
   return (
@@ -113,7 +112,7 @@ function App() {
             placeholder='Add an awesome password'
             type='password'
           />
-          <Button type='submit'>login</Button>
+          <Button type='submit'>Login</Button>
         </FormContainer>
       </main>
     </div>
